@@ -1,3 +1,17 @@
+# == DO NOT EDIT THE FOLLOWING LINES for the Raspberry Pi Pico VS Code Extension to work ==
+if(WIN32)
+    set(USERHOME $ENV{USERPROFILE})
+else()
+    set(USERHOME $ENV{HOME})
+endif()
+set(sdkVersion 1.5.1)
+set(toolchainVersion 13_2_Rel1)
+set(picotoolVersion 2.0.0)
+set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+if (EXISTS ${picoVscode})
+    include(${picoVscode})
+endif()
+# ====================================================================================
 # Define a versão mínima do CMake necessária para este projeto
 cmake_minimum_required(VERSION 3.13)
 
@@ -43,6 +57,11 @@ pico_sdk_init()
 add_executable(display_oled
     ssd1306.c     # Driver do display OLED
     main.c        # Código principal da aplicação
+    joystick.c    # Driver do joystick
+    menu.c        # Menu de opções
+    buzzer.c      # Driver do buzzer
+    buttons.c     # Driver dos botões
+    notes.c       # Notas musicais
 )
 
 # Define o nome do programa exibido em ferramentas de depuração
@@ -69,6 +88,8 @@ pico_enable_stdio_usb(display_oled 1)  # USB habilitado (saída via USB Serial)
 target_link_libraries(display_oled
     pico_stdlib    # Biblioteca padrão do Pico (inclui funções básicas como sleep_ms)
     hardware_i2c   # Biblioteca para suporte ao I2C (necessária para o SSD1306)
+    hardware_pwm   # Para buzzers
+    hardware_adc   # Para joystick
 )
 
 # Define os diretórios de inclusão para headers
