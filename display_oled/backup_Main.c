@@ -9,15 +9,11 @@
 
 int main() {
     stdio_init_all();
-
     ssd1306_init(i2c1, 14, 15);
     ssd1306_clear();
-
     setup(); // Configura o joystick
     setup_buzzers(); // Configura os buzzers
     setup_buttons(); // Configura os botões
-    pwm_init_buzzer(BUZZER_A_PIN); // Inicializa o PWM para o buzzer A
-    pwm_init_buzzer(BUZZER_B_PIN); // Inicializa o PWM para o buzzer B
 
     uint16_t vrx_value, vry_value;
     int current_menu = 1;
@@ -43,33 +39,21 @@ int main() {
         // Lógica para os botões
         if (is_button_a_pressed()) {
             // Ação para o botão A
-            printf("Botão A pressionado\n");
-            play_star_wars(BUZZER_A_PIN); // Toca a melodia Star Wars ao pressionar o botão A
+            play_mario(BUZZER_A_PIN); // Melodia principal no Buzzer B
         }
 
         if (is_button_b_pressed()) {
             // Ação para o botão B
-            printf("Botão B pressionado\n");
-            play_mario(BUZZER_B_PIN); // Toca a melodia Super Mario Bros ao pressionar o botão B
+            play_mario(BUZZER_B_PIN); // Melodia principal no Buzzer B
         }
 
         ssd1306_clear();
         switch (current_menu) {
-            case 1:
-                menu_one();
-                break;
-            case 2:
-                menu_two();
-                break;
-            case 3:
-                menu_three();
-                break;
-            case 4:
-                menu_four();
-                break;
-            case 5:
-                menu_five();
-                break;
+            case 1: menu_one(); break;
+            case 2: menu_two(); break;
+            case 3: menu_three(); break;
+            case 4: menu_four(); break;
+            case 5: menu_five(); break;
         }
         ssd1306_update();
         sleep_ms(200); // Aumenta o delay para evitar múltiplas mudanças rápidas

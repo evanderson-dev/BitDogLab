@@ -47,30 +47,30 @@ void play_buzzer_b(uint32_t frequency, uint32_t duration) {
 
 void play_mario(uint32_t pin) {
     const uint32_t mario_melody[] = {
-        NOTE_E7, NOTE_E7, 0, NOTE_E7,
-        0, NOTE_C7, NOTE_E7, 0,
-        NOTE_G7, 0, 0,  0,
-        NOTE_G6, 0, 0, 0,
+        MI_Oitava_7, MI_Oitava_7, 0, MI_Oitava_7,           // Mi7 Mi7 - Mi7
+        0, DO_Oitava_7, MI_Oitava_7, 0,                     // - Dó7 Mi7 -
+        SOL_Oitava_7, 0, 0, 0,                              // Sol7 - - -
+        SOL_Oitava_6, 0, 0, 0,                              // Sol6 - - -
 
-        NOTE_C7, 0, 0, NOTE_G6,
-        0, 0, NOTE_E6, 0,
-        0, NOTE_A6, 0, NOTE_B6,
-        0, NOTE_AS6, NOTE_A6, 0,
+        DO_Oitava_7, 0, 0, SOL_Oitava_6,                    // Dó7 - - Sol6
+        0, 0, MI_Oitava_6, 0,                               // - - Mi6 -
+        0, LA_Oitava_6, 0, SI_Oitava_6,                     // - Lá6 - Si6
+        0, LA_S_Oitava_6, LA_Oitava_6, 0,                   // - Lá#6 Lá6 -
 
-        NOTE_G6, NOTE_E7, NOTE_G7,
-        NOTE_A7, 0, NOTE_F7, NOTE_G7,
-        0, NOTE_E7, 0, NOTE_C7,
-        NOTE_D7, NOTE_B6, 0, 0,
+        SOL_Oitava_6, MI_Oitava_7, SOL_Oitava_7,            // Sol6 Mi7 Sol7
+        LA_Oitava_7, 0, FA_Oitava_7, SOL_Oitava_7,          // Lá7 - Fá7 Sol7
+        0, MI_Oitava_7, 0, DO_Oitava_7,                     // - Mi7 - Dó7
+        RE_Oitava_7, SI_Oitava_6, 0, 0,                     // Ré7 Si6 - -
 
-        NOTE_C7, 0, 0, NOTE_G6,
-        0, 0, NOTE_E6, 0,
-        0, NOTE_A6, 0, NOTE_B6,
-        0, NOTE_AS6, NOTE_A6, 0,
+        DO_Oitava_7, 0, 0, SOL_Oitava_6,                    // Dó7 - - Sol6
+        0, 0, MI_Oitava_6, 0,                               // - - Mi6 -
+        0, LA_Oitava_6, 0, SI_Oitava_6,                     // - Lá6 - Si6
+        0, LA_S_Oitava_6, LA_Oitava_6, 0,                   // - Lá#6 Lá6 -
 
-        NOTE_G6, NOTE_E7, NOTE_G7,
-        NOTE_A7, 0, NOTE_F7, NOTE_G7,
-        0, NOTE_E7, 0, NOTE_C7,
-        NOTE_D7, NOTE_B6, 0, 0
+        SOL_Oitava_6, MI_Oitava_7, SOL_Oitava_7,            // Sol6 Mi7 Sol7
+        LA_Oitava_7, 0, FA_Oitava_7, SOL_Oitava_7,          // Lá7 - Fá7 Sol7
+        0, MI_Oitava_7, 0, DO_Oitava_7,                     // - Mi7 - Dó7
+        RE_Oitava_7, SI_Oitava_6, 0, 0                      // Ré7 Si6 - -
     };
 
     const uint32_t mario_durations[] = {
