@@ -15,10 +15,6 @@ void setup_joystick(void) {
     gpio_pull_up(SW);
 }
 
-void setup(void) {
-    setup_joystick();
-}
-
 void joystick_read_axis(uint16_t *vrx_value, uint16_t *vry_value) {
     adc_select_input(0);
     sleep_us(2);

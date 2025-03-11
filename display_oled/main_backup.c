@@ -6,6 +6,7 @@
 #include "buzzer.h"
 #include "buttons.h"
 #include "notes.h"
+#include "servo.h"
 
 int main() {
     stdio_init_all();
@@ -14,6 +15,8 @@ int main() {
     setup(); // Configura o joystick
     setup_buzzers(); // Configura os buzzers
     setup_buttons(); // Configura os botões
+    init_servo(); // Inicializa o servo motor
+    set_servo_locked(); // Inicializa o servo motor na posição travada
 
     uint16_t vrx_value, vry_value;
     int current_menu = 1;
@@ -38,13 +41,11 @@ int main() {
 
         // Lógica para os botões
         if (is_button_a_pressed()) {
-            // Ação para o botão A
-            play_mario(BUZZER_A_PIN); // Melodia principal no Buzzer B
+            play_buzzer_a(2000, 100);
         }
 
         if (is_button_b_pressed()) {
-            // Ação para o botão B
-            play_mario(BUZZER_B_PIN); // Melodia principal no Buzzer B
+            play_buzzer_b(2000, 50);
         }
 
         ssd1306_clear();

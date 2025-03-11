@@ -62,6 +62,7 @@ add_executable(display_oled
     buzzer.c      # Driver do buzzer
     buttons.c     # Driver dos botões
     notes.c       # Notas musicais
+    servo.c       # Driver do servo motor
 )
 
 # Define o nome do programa exibido em ferramentas de depuração
