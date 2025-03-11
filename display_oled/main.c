@@ -51,11 +51,11 @@ int main() {
 
         ssd1306_clear();
         switch (current_menu) {
-            case 1: menu_one(); break;
-            case 2: menu_two(); break;
-            case 3: menu_three(); break;
-            case 4: menu_four(); break;
-            case 5: menu_five(); break;
+            case 1: draw_menu(current_menu); break;
+            case 2: draw_menu(current_menu); break;
+            case 3: draw_menu(current_menu); break;
+            case 4: draw_menu(current_menu); break;
+            case 5: draw_menu(current_menu); break;
         }
         ssd1306_update();
         sleep_ms(200); // Aumenta o delay para evitar múltiplas mudanças rápidas

@@ -1,11 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
-#include "ssd1306.h"
 
-void menu_one(void);
-void menu_two(void);
-void menu_three(void);
-void menu_four(void);
-void menu_five(void);
+// Função para desenhar o menu no display
+// Param: selected_item - índice do item atualmente selecionado (1 a 5)
+void draw_menu(int selected_item);
 
 #endif
