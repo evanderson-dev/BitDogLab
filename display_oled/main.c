@@ -7,6 +7,7 @@
 #include "buttons.h"
 #include "notes.h"
 #include "servo.h"
+#include "neopixel.h"
 
 int main() {
     stdio_init_all();

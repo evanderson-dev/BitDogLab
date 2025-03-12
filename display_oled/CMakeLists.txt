@@ -63,6 +63,7 @@ add_executable(display_oled
     buttons.c     # Driver dos botões
     notes.c       # Notas musicais
     servo.c       # Driver do servo motor
+    neopixel.c    # Driver do NeoPixel
 )
 
 # Define o nome do programa exibido em ferramentas de depuração
@@ -87,10 +88,12 @@ pico_enable_stdio_usb(display_oled 1)  # USB habilitado (saída via USB Serial)
 # ALTERE AQUI para adicionar mais bibliotecas do SDK se necessário:
 # Exemplo: hardware_gpio, hardware_pwm, etc.
 target_link_libraries(display_oled
-    pico_stdlib    # Biblioteca padrão do Pico (inclui funções básicas como sleep_ms)
-    hardware_i2c   # Biblioteca para suporte ao I2C (necessária para o SSD1306)
-    hardware_pwm   # Para buzzers
-    hardware_adc   # Para joystick
+    pico_stdlib     # Biblioteca padrão do Pico (inclui funções básicas como sleep_ms)
+    hardware_i2c    # Biblioteca para suporte ao I2C (necessária para o SSD1306)
+    hardware_pwm    # Para buzzers
+    hardware_adc    # Para joystick
+    hardware_pio    # Para NeoPixel
+    hardware_clocks # Para NeoPixel
 )
 
 # Define os diretórios de inclusão para headers
